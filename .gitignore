@@ -1,0 +1,5 @@
+cfg/config.tools.php
+composer.lock
+composer.phar
+vendor/
+tmp/
