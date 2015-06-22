@@ -1,0 +1,37 @@
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/amilabs/devkit"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/amilabs/CryptoKit"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Deepelopment/Net"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ArtemKo7v/php-OP_RETURN"
+        }
+    ],
+    "require": {
+        "amilabs/devkit": "dev-develop",
+        "amilabs/CryptoKit": "dev-develop",
+        "Deepelopment/Net": "dev-develop",
+        "artemko7v/php-op_return": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "AmiLabs\\Chainy": "app/classes"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
+    "scripts": {
+        "post-update-cmd":  "AmiLabs\\DevKit\\Utility\\Composer::postUpdate",
+        "post-install-cmd": "AmiLabs\\DevKit\\Utility\\Composer::postInstall"
+    }
+}
