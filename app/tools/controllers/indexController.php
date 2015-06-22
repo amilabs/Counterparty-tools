@@ -18,7 +18,12 @@ class indexController extends Controller {
     /**
      * Index action.
      */
-    public function actionIndex(){}
+    public function actionIndex(){
+        $oTpl = $this->getApplication()->getTemplate();
+        if($oTpl->exists('ga')){
+            $this->oView->set('ga', $oTpl->get('ga'));
+        }
+    }
     /**
      * Create transaction action.
      */

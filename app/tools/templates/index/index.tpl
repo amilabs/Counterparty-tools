@@ -177,3 +177,5 @@
         </div>
     </div>
 </div>
+{* Google Analytics *}
+{if isset($ga)}{$ga}{/if}
