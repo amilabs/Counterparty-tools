@@ -78,9 +78,10 @@
             <i id="create-spinner" class="spinner fa fa-cog fa-3x fa-spin"></i>
         </div>
         <div class="legend alert alert-success col-xs-5">
-            <b>Counterparty online tools.</b><br /><br />
-            Create, sign, and broadcast multisignature transactions with Counterparty Assets or bitcoins.<br />
-            Operates with Mainnet and Testnet. Sources available
+            <h4>Counterparty online tools</h4>
+            Create, sign, and broadcast multisignature transactions with Counterparty Assets or bitcoins.<br /><br />
+            Operates with Mainnet and Testnet. Sources available.<br /><br />
+            Look more at <a href="https://medium.com/ami-labs">AmiLabs blog</a>.
         </div>
         <div class="result-success alert alert-success col-xs-5">
             <b>RESULT:</b><br>
