@@ -1,0 +1,63 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 120px;
+}
+
+.padding-top-10 {
+    padding-top: 10px;
+}
+
+#page-create {
+    display: block;
+    position: absolute;
+}
+
+#page-sign,
+#page-broadcast {
+    display: none;
+    position: absolute;
+}
+
+ul.nav li a {
+    cursor: pointer;
+}
+
+.spinner,
+.result-error,
+.result-success {
+    display: none;
+}
+
+.page{
+    margin-bottom: 80px;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  height: 70px;
+  width: 100%;
+} 
+
+@media (min-width: 768px){
+    .page {
+      width: 750px;
+    }
+}
+
+@media (min-width: 992px){
+    .page {
+      width: 970px;
+    }
+}
+
+@media (min-width: 1200px){
+    .page {
+      width: 1170px;
+    }
+}
