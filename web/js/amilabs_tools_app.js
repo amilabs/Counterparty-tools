@@ -202,18 +202,24 @@ DKApp = {
                     $('#broadcastBtn').show();
                     $('#broadcast-spinner').hide();
                     try{
-                        var err = false;
+                        var error = false;
+                        var errMsg = '';
                         data = JSON.parse(data);
                         if(data.success){
                             DKApp.showResponse(data.result);
                         }else{
-                            err = data.result;
+                            error = true;
+                            errMsg = data.result;
                         }
                     }catch(e){
-                        err = data;
+                        error = true;
+                        errMsg = data;
                     }
-                    if(err){
-                        DKApp.showResponse(err, true);
+                    if(error){
+                        if(!errMsg){
+                            errMsg = 'Unknown error';
+                        }
+                        DKApp.showResponse(errMsg, true);
                     }
                 }
             );
