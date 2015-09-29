@@ -71,6 +71,7 @@ DKApp = {
         $('#gotoSignTX').click(function(){DKApp.goto('sign');});
         $('#gotoBroadcastTX').click(function(){DKApp.goto('broadcast');});
         $('#gotoBlockscan').click(DKApp.blockscanView);
+        $('#checkBalanceBtn').click(DKApp.checkBalance);
         $('ul.nav li').click(function(){
             var page = $(this).attr('data-page');
             DKApp.switchPage(page);
@@ -225,11 +226,65 @@ DKApp = {
             );
         }
     },
+    checkBalance: function(){
+        $('.has-error').removeClass('has-error');
+        $('.help-block').remove();
+        var address = $('#address-balance');
+        var hasErrors = !address.val();
+        if(!address.val()){
+            DKApp.addError(address, 'Enter BTC address');
+        }
+        if(!hasErrors){
+            $('#checkBalanceBtn').hide();
+            $('#balance-spinner').show();
+            $.post(
+                '/checkBalance',
+                {
+                    _: new Date().getTime(),
+                    address: address.val()
+                },
+                function(data){
+                    $('#checkBalanceBtn').show();
+                    $('#balance-spinner').hide();
+                    try{
+                        var error = false;
+                        var errMsg = '';
+                        data = JSON.parse(data);
+                        if(data.success){
+                            if(data.result && data.result[0] && data.result[0].info){
+                                DKApp.showResponse({
+                                    balance: data.result[0].info.balance,
+                                    uncomfirmed: data.result[0].info.unconfirmedBalance,
+                                });
+                            }else{
+                                DKApp.showResponse(data.result);
+                            }
+                        }else{
+                            error = true;
+                            errMsg = data.result;
+                        }
+                    }catch(e){
+                        error = true;
+                        errMsg = data;
+                    }
+                    if(error){
+                        if(!errMsg){
+                            errMsg = 'Unknown error';
+                        }
+                        DKApp.showResponse(errMsg, true);
+                    }
+                }
+            );
+        }
+    },
     blockscanView: function(){
         var hash = $('.result-success:visible pre').text();
         window.location.href = 'http://blockscan.com/tx?txhash=' + hash;
     },
     showResponse: function(message, isError){
+        if('object' === typeof(message)){
+            message = JSON.stringify(message, null, 4);
+        }
         if(typeof(isError) === 'undefined'){
             isError = false;
         }

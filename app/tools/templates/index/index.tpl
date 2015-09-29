@@ -177,5 +177,34 @@
         </div>
     </div>
 </div>
+<div id="page-utils" class="page">
+    <h1>Get Address Balance</h1>
+    <div class="row">
+        <div class="alert alert-info col-xs-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    Address:
+                    <input class="form-control input-lg" id="address-balance">
+                </div>
+            </div>
+            <div class="row padding-top-10">
+                <div class="col-xs-12 text-right">
+                    <button class="btn btn-lg btn-success" id="checkBalanceBtn">Check</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1 text-center" style="margin-top: 100px;">
+            <i id="balance-spinner" class="spinner fa fa-cog fa-3x fa-spin"></i>
+        </div>
+        <div class="result-success alert alert-success col-xs-5">
+            <b>RESULT:</b><br>
+            <pre></pre>
+        </div>
+        <div class="result-error alert alert-danger col-xs-5">
+            <b>ERROR:</b><br>
+            <pre></pre>
+        </div>
+    </div>
+</div>
 {* Google Analytics *}
 {if isset($ga)}{$ga}{/if}

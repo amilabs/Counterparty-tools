@@ -26,6 +26,7 @@
                         <li data-page="create" class="active"><a>Create TX</a></li>
                         <li data-page="sign"><a>Sign TX</a></li>
                         <li data-page="broadcast"><a>Broadcast TX</a></li>
+                        <li data-page="utils"><a>Utils</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li style="padding-top:8px;">

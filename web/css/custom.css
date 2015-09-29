@@ -13,6 +13,7 @@ body {
 }
 
 #page-sign,
+#page-utils,
 #page-broadcast {
     display: none;
     position: absolute;
